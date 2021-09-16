@@ -10,7 +10,7 @@ rhel_ver_7(){
  echo $Hostname:$Date
 } 
 
-if (( $rhel_ver==7 && $rhel_ver<8 ))
+if (( $rhel_ver>=7 && $rhel_ver<8 ))
 then
 rhel_ver_7
 fi
