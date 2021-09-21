@@ -1,0 +1,25 @@
+[root@node2 shellscripts]# TZ='"Asia/Kolkata"'
+[root@node2 shellscripts]# echo $TZ
+"Asia/Kolkata"
+[root@node2 shellscripts]# sed -i "s|\(^ZONE=\).*|ZONE=$TZ|" /etc/sysconfig/clock
+[root@node2 shellscripts]# cat /etc/sysconfig/clock
+# The ZONE parameter is only evaluated by system-config-date.
+
+# The timezone of the system is defined by the contents of /etc/localtime.
+
+ZONE="Asia/Kolkata"
+UTC=true
+ARC=false
+
+
+[root@node2 shellscripts]# sed -i "s|\(^ZONE=\).*|ZONE="'"'$TZ'"'"|" /etc/sysconfig/clock
+[root@node2 shellscripts]# cat /etc/sysconfig/clock
+# The ZONE parameter is only evaluated by system-config-date.
+
+# The timezone of the system is defined by the contents of /etc/localtime.
+
+ZONE="Asia/Kolkata"
+UTC=true
+ARC=false
+[root@node2 shellscripts]# echo $TZ
+Asia/Kolkata
